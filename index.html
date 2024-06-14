@@ -36,7 +36,22 @@
 				background-position: center;
 			}
 			.parallax {
-				background-image: url("images/plannerimage.jpg"); /* Update this path to your desired image */
+				background-image: linear-gradient(
+						to right,
+						rgba(0, 0, 0, 0.1) 0%,
+						rgba(0, 0, 0, 0.1) 16.67%,
+						rgba(0, 0, 0, 0.3) 16.67%,
+						rgba(0, 0, 0, 0.3) 33.34%,
+						rgba(0, 0, 0, 0.4) 33.34%,
+						rgba(0, 0, 0, 0.4) 50.01%,
+						rgba(0, 0, 0, 0.5) 50.01%,
+						rgba(0, 0, 0, 0.5) 66.68%,
+						rgba(0, 0, 0, 0.6) 66.68%,
+						rgba(0, 0, 0, 0.6) 83.35%,
+						rgba(0, 0, 0, 0.7) 83.35%,
+						rgba(0, 0, 0, 0.7) 100%
+					),
+					url("images/plannerimage.jpg"); /* Update this path to your desired image */
 				height: 100vh;
 				background-attachment: fixed;
 				background-size: cover;
@@ -45,7 +60,22 @@
 			.parallax-content {
 				position: relative;
 				z-index: 1;
-				background-image: url("images/routeimage.jpg");
+				background-image: linear-gradient(
+						to right,
+						rgba(0, 0, 0, 0.7) 0%,
+						rgba(0, 0, 0, 0.7) 16.67%,
+						rgba(0, 0, 0, 0.6) 16.67%,
+						rgba(0, 0, 0, 0.6) 33.34%,
+						rgba(0, 0, 0, 0.5) 33.34%,
+						rgba(0, 0, 0, 0.5) 50.01%,
+						rgba(0, 0, 0, 0.4) 50.01%,
+						rgba(0, 0, 0, 0.4) 66.68%,
+						rgba(0, 0, 0, 0.3) 66.68%,
+						rgba(0, 0, 0, 0.3) 83.35%,
+						rgba(0, 0, 0, 0.1) 83.35%,
+						rgba(0 0, 0, 0.1) 100%
+					),
+					url("images/routeimage.jpg");
 				background-attachment: fixed;
 				background-size: cover;
 				background-position: center;
@@ -77,7 +107,7 @@
 		<section id="planner" class="bg-gray-100 py-16 parallax-content">
 			<div class="container mx-auto">
 				<h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Route Planner</h2>
-				<div class="flex flex-col md:flex-row items-start">
+				<div class="flex flex-col md:flex-row items-start mx-4">
 					<div id="map" class="rounded-lg shadow-md flex-grow mb-8 md:mb-0 md:mr-8"></div>
 					<div id="sidebar" class="bg-gray-100 rounded-lg shadow-md p-6 w-full md:w-64">
 						<h3 class="text-2xl font-bold mb-4">Destinations</h3>
@@ -85,23 +115,26 @@
 					</div>
 				</div>
 				<div class="mt-8 text-center">
-					<button id="clear-route" class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition">
+					<button
+						id="clear-route"
+						class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition cursor-pointer mx-2"
+					>
 						Clear Route
 					</button>
 					<button
 						id="export-route"
-						class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition"
+						class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition cursor-pointer mx-2"
 					>
 						Export Route
 					</button>
 					<input type="file" id="import-route" class="hidden" />
 					<label
 						for="import-route"
-						class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-700 transition cursor-pointer"
+						class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-700 transition cursor-pointer mx-2"
 						>Import Route</label
 					>
 				</div>
-				<div class="mt-8">
+				<div class="mt-8 mx-4">
 					<label class="block text-gray-100 font-bold mb-2" for="search">Search Location</label>
 					<input
 						type="text"
