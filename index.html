@@ -16,6 +16,24 @@
 			}
 			.header-bg {
 				background-image: url("images/headerimage.jpg");
+				background-attachment: fixed;
+				background-size: cover;
+				background-position: center;
+			}
+			.parallax {
+				background-image: url("images/plannerimage.jpg"); /* Update this path to your desired image */
+				height: 100vh;
+				background-attachment: fixed;
+				background-size: cover;
+				background-position: center;
+			}
+			.parallax-content {
+				position: relative;
+				z-index: 1;
+				background-image: url("images/routeimage.jpg");
+				background-attachment: fixed;
+				background-size: cover;
+				background-position: center;
 			}
 			html {
 				scroll-behavior: smooth;
@@ -39,12 +57,14 @@
 			</div>
 		</header>
 
-		<section id="planner" class="bg-gray-100 py-16">
+		<section class="parallax"></section>
+
+		<section id="planner" class="bg-gray-100 py-16 parallax-content">
 			<div class="container mx-auto">
-				<h2 class="text-4xl font-bold text-center mb-12">Route Planner</h2>
+				<h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Route Planner</h2>
 				<div class="flex flex-col md:flex-row items-start">
 					<div id="map" class="rounded-lg shadow-md flex-grow mb-8 md:mb-0 md:mr-8"></div>
-					<div id="sidebar" class="bg-white rounded-lg shadow-md p-6 w-full md:w-64">
+					<div id="sidebar" class="bg-gray-100 rounded-lg shadow-md p-6 w-full md:w-64">
 						<h3 class="text-2xl font-bold mb-4">Destinations</h3>
 						<ul id="destinations-list" class="list-decimal pl-4"></ul>
 					</div>
@@ -67,11 +87,11 @@
 					>
 				</div>
 				<div class="mt-8">
-					<label class="block text-gray-700 font-bold mb-2" for="search">Search Location</label>
+					<label class="block text-gray-100 font-bold mb-2" for="search">Search Location</label>
 					<input
 						type="text"
 						id="search"
-						class="w-full p-4 border border-gray-300 rounded-lg"
+						class="w-full p-4 border border-gray-300 rounded-lg bg-gray-100"
 						placeholder="Enter location"
 					/>
 				</div>
