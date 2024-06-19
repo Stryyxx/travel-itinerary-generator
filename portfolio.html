@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio</title>
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+		<style>
+			body {
+				font-family: "Inter", sans-serif;
+			}
+			.header-bg {
+				background-image: url("images/portfolio-header.jpg");
+				background-size: cover;
+				background-position: center;
+				height: 60vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+			}
+			.header-bg h1 {
+				font-size: 4rem;
+				font-weight: bold;
+			}
+			.section-title {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+				border-bottom: 2px solid #333;
+				padding-bottom: 0.5rem;
+			}
+			.table-container {
+				overflow-x: auto;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-100">
+		<header class="header-bg">
+			<h1>My Portfolio</h1>
+		</header>
+
+		<nav class="bg-gray-900 text-white p-4">
+			<ul class="flex justify-center space-x-8">
+				<li><a href="index.html" class="hover:text-gray-400">Home</a></li>
+				<li><a href="portfolio.html" class="hover:text-gray-400">Portfolio</a></li>
+			</ul>
+		</nav>
+
+		<main class="container mx-auto my-12 p-4 bg-white rounded-lg shadow-md">
+			<section>
+				<h2 class="section-title">Understanding the Problem</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Task</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Identify and justify the interactive media product</td>
+								<td class="border border-gray-300 px-4 py-2">Description and justification of the chosen product.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Usage in Enterprise</td>
+								<td class="border border-gray-300 px-4 py-2">
+									Explanation of how these products are used in enterprise.
+								</td>
+							</tr>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Content Justification</td>
+								<td class="border border-gray-300 px-4 py-2">Identification and justification of the content.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Target Audience</td>
+								<td class="border border-gray-300 px-4 py-2">
+									Identification and justification of the target audience.
+								</td>
+							</tr>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">User Experience Considerations</td>
+								<td class="border border-gray-300 px-4 py-2">Description of the user experience considerations.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Making Decisions</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Task</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Timeline (Gantt Chart)</td>
+								<td class="border border-gray-300 px-4 py-2">Outline the timeline using a Gantt chart.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Software and Hardware Requirements</td>
+								<td class="border border-gray-300 px-4 py-2">List of required software and hardware.</td>
+							</tr>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Materials Required</td>
+								<td class="border border-gray-300 px-4 py-2">File extensions and digital media items needed.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Social and Ethical Considerations</td>
+								<td class="border border-gray-300 px-4 py-2">Outline social and ethical considerations.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Designing Solutions</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Task</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Annotated Designs</td>
+								<td class="border border-gray-300 px-4 py-2">Include storyboards, GUI designs, and scripts.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Implementation</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Date</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Task</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Tools Used</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Problems</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Solutions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Date</td>
+								<td class="border border-gray-300 px-4 py-2">Task</td>
+								<td class="border border-gray-300 px-4 py-2">Tools Used</td>
+								<td class="border border-gray-300 px-4 py-2">Problems</td>
+								<td class="border border-gray-300 px-4 py-2">Solutions</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Self-Testing</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Date</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Test Name</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Expected Outcome</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Actual Outcome</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Changes Made</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Date</td>
+								<td class="border border-gray-300 px-4 py-2">Test Name</td>
+								<td class="border border-gray-300 px-4 py-2">Expected Outcome</td>
+								<td class="border border-gray-300 px-4 py-2">Actual Outcome</td>
+								<td class="border border-gray-300 px-4 py-2">Changes Made</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Peer Testing</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Peer</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Positive</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Changes Needed</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Self-Reflection</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Outcome</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Liam</td>
+								<td class="border border-gray-300 px-4 py-2">Great visual display for planning routes.</td>
+								<td class="border border-gray-300 px-4 py-2">Add more accessibility and QoL changes.</td>
+								<td class="border border-gray-300 px-4 py-2">Good idea, needs usability improvements.</td>
+								<td class="border border-gray-300 px-4 py-2">Improvements implemented.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Elena</td>
+								<td class="border border-gray-300 px-4 py-2">Liked the path creation and display.</td>
+								<td class="border border-gray-300 px-4 py-2">Routes should follow realistic paths.</td>
+								<td class="border border-gray-300 px-4 py-2">Consider travel paths for accuracy.</td>
+								<td class="border border-gray-300 px-4 py-2">Routes adjusted for realism.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="mt-12">
+				<h2 class="section-title">Evaluation and Maintenance</h2>
+				<div class="table-container">
+					<table class="min-w-full table-auto border-collapse border border-gray-200">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="border border-gray-300 px-4 py-2 text-left">Task</th>
+								<th class="border border-gray-300 px-4 py-2 text-left">Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="border border-gray-300 px-4 py-2">Project Evaluation</td>
+								<td class="border border-gray-300 px-4 py-2">Write an evaluation on the project as a whole.</td>
+							</tr>
+							<tr class="bg-gray-50">
+								<td class="border border-gray-300 px-4 py-2">Maintenance Requirements</td>
+								<td class="border border-gray-300 px-4 py-2">
+									Present the maintenance requirements of the product (daily, weekly, monthly, yearly).
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+
+		<footer class="bg-gray-900 text-white text-center py-6">&copy; 2024 Max Horvath. All rights reserved.</footer>
+	</body>
+</html>
