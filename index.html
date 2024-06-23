@@ -7,6 +7,10 @@
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
+			body {
+				font-family: "Inter";
+			}
 			#map {
 				height: 500px;
 			}
@@ -55,6 +59,14 @@
 			html {
 				scroll-behavior: smooth;
 			}
+			.marquee-container {
+				width: 75%;
+				font-family: Playwrite NG Modern;
+				height: max-content;
+			}
+			.header-text {
+				max-width: 50%;
+			}
 		</style>
 	</head>
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal min-h-screen">
@@ -67,9 +79,9 @@
 
 		<header class="header-bg bg-cover bg-center h-screen">
 			<div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-				<div class="text-center text-white px-4">
+				<div class="text-center text-white px-4 header-text">
 					<h1 class="text-5xl font-bold mb-4">Plan Your Route</h1>
-					<p class="text-2xl mb-8">Create and save your travel routes with our interactive map</p>
+					<p class="text-2xl mb-8">Create and save your travel routes with our interactive map.</p>
 					<a
 						href="#planner"
 						class="bg-blue-500 px-8 py-4 text-xl rounded-full hover:bg-blue-700 transition duration-700 shadow-2xl shadow-white"
@@ -79,7 +91,16 @@
 			</div>
 		</header>
 
-		<section class="parallax"></section>
+		<section class="parallax">
+			<div class="flex items-center justify-center h-full">
+				<div class="text-center text-white px-4 marquee-container">
+					<marquee class="text-5xl font-bold mb-4"
+						>Welcome to the travel planner. Head over to the activity planner to write out your activities at each
+						destination.</marquee
+					>
+				</div>
+			</div>
+		</section>
 
 		<section id="planner" class="bg-gray-100 pt-16 parallax-content">
 			<div class="container mx-auto">
