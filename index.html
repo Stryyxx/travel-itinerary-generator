@@ -6,147 +6,89 @@
 		<title>Route Planner</title>
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-		<style>
-			@import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
-			body {
-				font-family: "Inter";
-			}
-			#map {
-				height: 500px;
-			}
-			#sidebar {
-				max-height: 500px;
-				overflow-y: auto;
-			}
-			.header-bg {
-				background-image: linear-gradient(
-						to right,
-						rgba(0, 0, 0, 0.6) 0%,
-						rgba(0, 0, 0, 0.6) 16.67%,
-						rgba(0, 0, 0, 0.5) 16.67%,
-						rgba(0, 0, 0, 0.5) 33.34%,
-						rgba(0, 0, 0, 0.4) 33.34%,
-						rgba(0, 0, 0, 0.4) 50.01%,
-						rgba(0, 0, 0, 0.3) 50.01%,
-						rgba(0, 0, 0, 0.3) 66.68%,
-						rgba(0, 0, 0, 0.2) 66.68%,
-						rgba(0, 0, 0, 0.2) 83.35%,
-						rgba(255, 255, 255, 0) 83.35%,
-						rgba(255, 255, 255, 0) 100%
-					),
-					url("images/headerimage.jpg");
-				background-attachment: fixed;
-				background-size: cover;
-				background-position: center;
-			}
-			.parallax {
-				background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-					url("images/plannerimage.jpg");
-				height: 100vh;
-				background-attachment: fixed;
-				background-size: cover;
-				background-position: center;
-			}
-			.parallax-content {
-				position: relative;
-				z-index: 1;
-				background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
-					url("images/routeimage.jpg");
-				background-attachment: fixed;
-				background-size: cover;
-				background-position: center;
-			}
-			html {
-				scroll-behavior: smooth;
-			}
-			.marquee-container {
-				width: 75%;
-				font-family: Playwrite NG Modern;
-			}
-			.header-text {
-				max-width: 50%;
-			}
-		</style>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal min-h-screen">
-		<div class="absolute top-0 w-full flex justify-center py-4">
-			<ul class="inline-block list-none text-center">
-				<li class="inline-block mx-4"><a href="index.html" class="text-2xl font-bold text-white">Home</a></li>
-				<li class="inline-block mx-4">
-					<a href="activityplanner.html" class="text-2xl font-bold text-white">Activity Planner</a>
-				</li>
-			</ul>
+		<div class="loader-container">
+			<div class="loader"></div>
 		</div>
-
-		<header class="header-bg bg-cover bg-center h-screen">
-			<div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-				<div class="text-center text-white px-4 header-text">
-					<h1 class="text-5xl font-bold mb-4">Plan Your Route</h1>
-					<p class="text-2xl mb-8">Create and save your travel routes with our interactive map.</p>
-					<a
-						href="#planner"
-						class="bg-blue-500 px-8 py-4 text-xl rounded-full hover:bg-blue-700 transition duration-700 shadow-2xl shadow-white"
-						>Get Started</a
-					>
-				</div>
+		<div class="content hidden">
+			<div class="absolute top-0 w-full flex justify-center py-4">
+				<ul class="inline-block list-none text-center">
+					<li class="inline-block mx-4"><a href="index.html" class="text-2xl font-bold text-white">Home</a></li>
+					<li class="inline-block mx-4">
+						<a href="activityplanner.html" class="text-2xl font-bold text-white">Activity Planner</a>
+					</li>
+				</ul>
 			</div>
-		</header>
-
-		<section class="parallax">
-			<div class="flex items-center justify-center h-full">
-				<div class="text-center text-white px-4 marquee-container">
-					<marquee style="line-height: 100px" class="text-5xl font-bold mb-4"
-						>Welcome to the travel planner. Head over to the activity planner to write out your activities at each
-						destination.</marquee
-					>
-				</div>
-			</div>
-		</section>
-
-		<section id="planner" class="bg-gray-100 pt-16 parallax-content">
-			<div class="container mx-auto">
-				<h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Route Planner</h2>
-				<div class="flex flex-col md:flex-row items-start mx-4">
-					<div id="map" class="rounded-lg shadow-md flex-grow mb-8 md:mb-0 md:mr-8"></div>
-					<div id="sidebar" class="bg-gray-100 rounded-lg shadow-md p-6 w-full md:w-64">
-						<h3 class="text-2xl font-bold mb-4">Destinations</h3>
-						<ul id="destinations-list" class="list-decimal pl-4"></ul>
+			<header class="header-bg bg-cover bg-center h-screen">
+				<div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
+					<div class="text-center text-white px-4 header-text">
+						<h1 class="text-5xl font-bold mb-4">Plan Your Route</h1>
+						<p class="text-2xl mb-8">Create and save your travel routes with our interactive map.</p>
+						<a
+							href="#planner"
+							class="bg-blue-500 px-8 py-4 text-xl rounded-full hover:bg-blue-700 transition duration-700 shadow-2xl shadow-white"
+							>Get Started</a
+						>
 					</div>
 				</div>
-				<div class="mt-8 text-center">
-					<button
-						id="clear-route"
-						class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
-					>
-						Clear Route
-					</button>
-					<button
-						id="export-route"
-						class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
-					>
-						Export Route
-					</button>
-					<input type="file" id="import-route" class="hidden" />
-					<label
-						for="import-route"
-						class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
-						>Import Route</label
-					>
+			</header>
+			<section class="parallax">
+				<div class="flex items-center justify-center h-full">
+					<div class="text-center text-white px-4 marquee-container">
+						<marquee style="line-height: 100px" class="text-5xl font-bold mb-4"
+							>Welcome to the travel planner. Head over to the activity planner to write out your activities at each
+							destination.</marquee
+						>
+					</div>
 				</div>
-				<div class="mt-8 mx-4">
-					<label class="block text-gray-100 font-bold mb-2" for="search">Search Location</label>
-					<input
-						type="text"
-						id="search"
-						class="w-full p-4 border border-gray-300 rounded-lg bg-gray-100"
-						placeholder="Enter location"
-					/>
+			</section>
+			<section id="planner" class="bg-gray-100 pt-16 parallax-content">
+				<div class="container mx-auto">
+					<h2 class="text-4xl font-bold text-center mb-12 text-gray-100">Route Planner</h2>
+					<div class="flex flex-col md:flex-row items-start mx-4">
+						<div id="map" class="rounded-lg shadow-md flex-grow mb-8 md:mb-0 md:mr-8"></div>
+						<div id="sidebar" class="bg-gray-100 rounded-lg shadow-md p-6 w-full md:w-64">
+							<h3 class="text-2xl font-bold mb-4">Destinations</h3>
+							<ul id="destinations-list" class="list-decimal pl-4"></ul>
+						</div>
+					</div>
+					<div class="mt-8 text-center">
+						<button
+							id="clear-route"
+							class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
+						>
+							Clear Route
+						</button>
+						<button
+							id="export-route"
+							class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
+						>
+							Export Route
+						</button>
+						<input type="file" id="import-route" class="hidden" />
+						<label
+							for="import-route"
+							class="bg-yellow-500 text-white px-8 py-3 rounded-full hover:bg-yellow-700 transition cursor-pointer mx-2 transition duration-700 shadow-2xl shadow-white"
+							>Import Route</label
+						>
+					</div>
+					<div class="mt-8 mx-4">
+						<label class="block text-gray-100 font-bold mb-2" for="search">Search Location</label>
+						<input
+							type="text"
+							id="search"
+							class="w-full p-4 border border-gray-300 rounded-lg bg-gray-100"
+							placeholder="Enter location"
+						/>
+					</div>
 				</div>
-			</div>
-			<footer class="text-center text-gray-100 pt-6 pb-6">&copy; Max Horvath 2024. All rights reserved.</footer>
-		</section>
-
-		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-		<script src="script.js"></script>
+				<footer class="text-center text-gray-100 pt-6 pb-6">&copy; Max Horvath 2024. All rights reserved.</footer>
+			</section>
+			<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+			<script src="javascript/loader.js"></script>
+			<script src="javascript/route.js"></script>
+		</div>
 	</body>
 </html>
