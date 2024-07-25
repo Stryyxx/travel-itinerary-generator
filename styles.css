@@ -76,10 +76,38 @@ body {
 html {
 	scroll-behavior: smooth;
 }
-.marquee-container {
-	width: 75%;
-	font-family: Playwrite NG Modern;
-}
 .header-text {
 	max-width: 50%;
+}
+.marquee {
+	line-height: 4;
+	overflow: hidden;
+	position: relative;
+	height: 100px;
+	text-align: center;
+	width: 100%;
+	/* Full width of its parent */
+	white-space: nowrap;
+	font-family: Playwrite NG Modern;
+}
+.marquee p {
+	position: absolute;
+	width: auto;
+	height: 100%;
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+	/* Start off the right edge */
+	transform: translateX(50%);
+	/* Animate to the left */
+	animation: scroll-left 20s linear infinite;
+}
+@keyframes scroll-left {
+	0% {
+		transform: translateX(60%);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
 }
