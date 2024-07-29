@@ -67,7 +67,7 @@ body {
 			rgba(255, 255, 255, 0) 83.35%,
 			rgba(255, 255, 255, 0) 100%
 		),
-		url("media/headerimage.jpg");
+		url("/assets/images/headerimage.jpg");
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;
@@ -76,7 +76,7 @@ body {
 /* Parallax background image and gradient */
 .parallax {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-		url("media/plannerimage.jpg");
+		url("/assets/images/plannerimage.jpg");
 	height: 100vh;
 	background-attachment: fixed;
 	background-size: cover;
@@ -88,7 +88,7 @@ body {
 	position: relative;
 	z-index: 1;
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
-		url("media/routeimage.jpg");
+		url("/assets/images/plannerimage.jpg");
 	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;

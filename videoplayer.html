@@ -6,7 +6,7 @@
 		<title>Video Player</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
 		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="assets/css/styles.css" />
 	</head>
 	<body class="bg-gray-100 font-sans leading-normal tracking-normal min-h-screen">
 		<div class="loader-container">
@@ -31,7 +31,7 @@
 					<div class="container mx-auto py-10">
 						<div class="video-player-container px-4">
 							<div class="plyr__video-embed" id="player" playsinline controls>
-								<iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID" allowfullscreen allowtransparency></iframe>
+								<iframe src="https://player.vimeo.com/video/991341856" allowfullscreen allowtransparency></iframe>
 							</div>
 						</div>
 					</div>
@@ -39,7 +39,7 @@
 			</header>
 		</div>
 		<script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
-		<script src="javascript/loader.js"></script>
+		<script src="assets/js/loader.js"></script>
 		<script>
 			const player = new Plyr("#player", {
 				controls: ["play-large", "play", "progress", "current-time", "mute", "volume", "settings", "pip", "fullscreen"],
