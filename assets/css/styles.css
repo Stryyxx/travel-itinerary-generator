@@ -1,0 +1,258 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap");
+
+/* Loader container styles */
+.loader-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* Loader animation styles */
+.loader {
+	margin: auto;
+	width: 50px;
+	height: 50px;
+	background-color: #465ee8;
+	animation: spin 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+/* Keyframes for loader spin animation */
+@keyframes spin {
+	0%,
+	100% {
+		transform: scale(1) rotate(0deg);
+	}
+	50% {
+		transform: scale(0.5) rotate(180deg);
+	}
+}
+
+/* Hidden class to hide elements */
+.hidden {
+	display: none;
+}
+
+/* Body font style */
+body {
+	font-family: "Inter";
+}
+
+/* Map height */
+#map {
+	height: 500px;
+}
+
+/* Sidebar styles with max height and overflow */
+#sidebar {
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+/* Header background image and gradient */
+.header-bg {
+	background-image: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0.6) 0%,
+			rgba(0, 0, 0, 0.6) 16.67%,
+			rgba(0, 0, 0, 0.5) 16.67%,
+			rgba(0, 0, 0, 0.5) 33.34%,
+			rgba(0, 0, 0, 0.4) 33.34%,
+			rgba(0, 0, 0, 0.4) 50.01%,
+			rgba(0, 0, 0, 0.3) 50.01%,
+			rgba(0, 0, 0, 0.3) 66.68%,
+			rgba(0, 0, 0, 0.2) 66.68%,
+			rgba(0, 0, 0, 0.2) 83.35%,
+			rgba(255, 255, 255, 0) 83.35%,
+			rgba(255, 255, 255, 0) 100%
+		),
+		url("media/headerimage.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Parallax background image and gradient */
+.parallax {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+		url("media/plannerimage.jpg");
+	height: 100vh;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Parallax content styles */
+.parallax-content {
+	position: relative;
+	z-index: 1;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
+		url("media/routeimage.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+/* Smooth scrolling for HTML */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Header text styles */
+.header-text {
+	max-width: 50%;
+}
+
+/* Marquee styles */
+.marquee {
+	line-height: 4;
+	overflow: hidden;
+	position: relative;
+	height: 100px;
+	text-align: center;
+	width: 100%; /* Full width of its parent */
+	white-space: nowrap;
+	font-family: Playwrite NG Modern;
+}
+
+.marquee p {
+	position: absolute;
+	width: auto;
+	height: 100%;
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+	transform: translateX(50%); /* Start off the right edge */
+	animation: scroll-left 20s linear infinite; /* Animate to the left */
+}
+
+/* Keyframes for marquee scrolling */
+@keyframes scroll-left {
+	0% {
+		transform: translateX(60%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+/* Video player container styles */
+.video-player-container {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+/* Custom styles for Plyr player */
+.plyr__controls {
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+}
+
+/* Range input color for Plyr full UI */
+.plyr--full-ui input[type="range"] {
+	color: #465ee8;
+}
+
+/* Plyr control button styles */
+.plyr__control--overlaid,
+.plyr__control,
+.plyr__control:focus,
+.plyr__control:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #465ee8;
+}
+
+/* Plyr volume control color */
+.plyr__volume {
+	color: #465ee8;
+}
+
+/* Plyr control button styles for video */
+.plyr--video .plyr__controls button,
+.plyr--video .plyr__controls button:hover,
+.plyr--video .plyr__controls button:focus {
+	color: #465ee8;
+}
+
+/* Plyr progress bar colors */
+.plyr__progress--played,
+.plyr__progress--buffer,
+.plyr__progress--seek,
+.plyr__progress__buffer {
+	background: #465ee8;
+}
+
+/* Plyr buffer progress bar color */
+.plyr__progress__buffer {
+	background: rgba(70, 94, 232, 0.5);
+}
+
+/* Customize Plyr settings menu */
+.plyr__menu {
+	color: #333;
+}
+
+/* Plyr settings menu container styles */
+.plyr__menu__container {
+	background: #f8f8f8;
+	color: #333;
+}
+
+/* Plyr settings menu item styles */
+.plyr__menu__container [role="menuitem"] {
+	color: #333;
+}
+
+/* Plyr settings menu item hover styles */
+.plyr__menu__container [role="menuitem"]:hover {
+	background: #465ee8;
+	color: #fff;
+}
+
+/* Plyr settings menu item active styles */
+.plyr__menu__container [role="menuitem"][aria-checked="true"] {
+	color: #465ee8;
+}
+
+/* Customize the arrow indicator */
+.plyr__menu__container [role="menuitem"]::after,
+.plyr__menu__container [role="menuitem"][aria-haspopup="true"]::after {
+	border-left-color: #333;
+}
+
+/* Additional customizations for Plyr */
+.plyr--full-ui .plyr__controls button.tab-focus:focus,
+.plyr--full-ui .plyr__controls button:hover,
+.plyr--full-ui .plyr__controls button[aria-expanded="true"] {
+	background-color: rgba(70, 94, 232, 0.7);
+	color: #fff;
+}
+
+.plyr__control--overlaid,
+.plyr__control--overlaid:hover,
+.plyr__control--overlaid:focus {
+	background-color: rgba(70, 94, 232, 0.7);
+	color: #fff;
+}
+
+/* Progress bar container color */
+.plyr__progress__container {
+	background: rgba(70, 94, 232, 0.1);
+}
+
+/* Buffer progress bar color */
+.plyr__progress--buffer {
+	background: rgba(70, 94, 232, 0.5);
+}
+
+/* Played progress bar color */
+.plyr__progress__played {
+	background: #465ee8;
+}
+
+/* Tooltip colors for Plyr */
+.plyr__tooltip {
+	background: #465ee8;
+	color: #fff;
+}

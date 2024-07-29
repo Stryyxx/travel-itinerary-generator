@@ -1,3 +1,4 @@
+// Your existing JS code
 document.addEventListener("DOMContentLoaded", () => {
 	var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
 	if (loadTime <= 2000) {
