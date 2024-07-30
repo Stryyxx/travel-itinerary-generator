@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const map = L.map("map").setView([-33.8688, 151.2093], 12);
+	const map = L.map("map").setView([-36.4042, 148.4108], 12);
 	const destinationsList = document.getElementById("destinations-list");
 
 	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -9,11 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	let route = [];
 	let markers = [];
-	const routeLayer = L.polyline(route, { color: "blue" }).addTo(map);
+	let routeLayer = L.polyline([], { color: "blue" }).addTo(map);
 
 	const clearMarkers = () => {
 		markers.forEach((marker) => map.removeLayer(marker));
 		markers = [];
+	};
+
+	const addMarker = (point, locationData) => {
+		const marker = L.marker(point).addTo(map);
+		markers.push(marker);
+		marker.on("click", () => {
+			route = route.filter((r) => r.point[0] !== point[0] || r.point[1] !== point[1]);
+			routeLayer.setLatLngs(route.map((r) => r.point));
+			map.removeLayer(marker);
+			markers = markers.filter((m) => m !== marker);
+			updateDestinationsList();
+		});
 	};
 
 	map.on("click", async (e) => {
@@ -22,17 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const locationData = await getLocationData(lat, lng);
 		route.push({ point, ...locationData });
 		routeLayer.setLatLngs(route.map((r) => r.point));
-
-		const marker = L.marker(point).addTo(map);
-		markers.push(marker);
-		marker.on("click", () => {
-			route = route.filter((r) => r.point[0] !== lat || r.point[1] !== lng);
-			routeLayer.setLatLngs(route.map((r) => r.point));
-			map.removeLayer(marker);
-			markers = markers.filter((m) => m !== marker);
-			updateDestinationsList();
-		});
-
+		addMarker(point, locationData);
 		updateDestinationsList();
 	});
 
@@ -68,17 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				routeLayer.setLatLngs(route.map((r) => r.point));
 				map.fitBounds(routeLayer.getBounds());
 				clearMarkers();
-				route.forEach((r) => {
-					const marker = L.marker(r.point).addTo(map);
-					markers.push(marker);
-					marker.on("click", () => {
-						route = route.filter((point) => point[0] !== r.point[0] || point[1] !== r.point[1]);
-						routeLayer.setLatLngs(route.map((point) => point));
-						map.removeLayer(marker);
-						markers = markers.filter((m) => m !== marker);
-						updateDestinationsList();
-					});
-				});
+				route.forEach((r) => addMarker(r.point, r));
 				updateDestinationsList();
 			};
 			reader.readAsText(file);
@@ -100,17 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				route.push({ point, ...locationData });
 				routeLayer.setLatLngs(route.map((r) => r.point));
 				map.setView(point, 13);
-
-				const marker = L.marker(point).addTo(map);
-				markers.push(marker);
-				marker.on("click", () => {
-					route = route.filter((r) => r.point[0] !== lat || r.point[1] !== lon);
-					routeLayer.setLatLngs(route.map((r) => r.point));
-					map.removeLayer(marker);
-					markers = markers.filter((m) => m !== marker);
-					updateDestinationsList();
-				});
-
+				addMarker(point, locationData);
 				updateDestinationsList();
 			} else {
 				alert("Location not found");
@@ -120,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const updateDestinationsList = () => {
 		destinationsList.innerHTML = "";
-		route.forEach((r, index) => {
+		route.forEach((r) => {
 			const listItem = document.createElement("li");
 			listItem.textContent = `${r.address}, ${r.country}`;
 			destinationsList.appendChild(listItem);
@@ -132,8 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`
 		);
 		const data = await response.json();
-		const address = getShortAddress(data.display_name);
-		return address;
+		return getShortAddress(data.display_name);
 	};
 
 	const getShortAddress = (displayName) => {
@@ -150,17 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		route = JSON.parse(savedRouteString);
 		routeLayer.setLatLngs(route.map((r) => r.point));
 		map.fitBounds(routeLayer.getBounds());
-		route.forEach((r) => {
-			const marker = L.marker(r.point).addTo(map);
-			markers.push(marker);
-			marker.on("click", () => {
-				route = route.filter((point) => point[0] !== r.point[0] || point[1] !== r.point[1]);
-				routeLayer.setLatLngs(route.map((point) => point));
-				map.removeLayer(marker);
-				markers = markers.filter((m) => m !== marker);
-				updateDestinationsList();
-			});
-		});
+		route.forEach((r) => addMarker(r.point, r));
 		updateDestinationsList();
 	}
 });
